@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.IO;
 ```
 
-Typically, files are verified by using a straight up hash function. Many distributors still use weakened functions like 
+Typically, file integrity is verified by using a straight up hash function. Many distributors still use weakened functions like 
 MD5 or SHA-1, though more and more are switching to the SHA-2 family. The good news is that .NET provides a common API
 for all hash functions, so demonstrating one will be sufficient to demonstrate all of them. We'll use a [picture of 
 my cat Zooey][zooey] as our demo file.
@@ -94,9 +94,12 @@ changes to the file (use a hex editor to change 1 byte, or even 1 bit!) and see 
 changes cascade into huge changes to the hash. You can see the complete code in the accompanying
 [ScriptCS file][csx]. 
 
-Throughout the C# chapters, we'll use ScriptCS files as runnable self-contained
-pieces of code. These should also work if passed to Mono's C# repl (`csharp`) on Linux or macOS. You can
-read more about ScriptCS on their website at http://scriptcs.net.
+An important thing to note about verifying file integrity using hash functions is that it **only** verifies that
+the contents of the file that you have probably (consider collisions!) match the contents that produced the digest
+provided by your upstream. It is still possible for the contents to be malicious: if an attacker has compromised
+your transport, or has compromised the host server, they can replace both the file and the digest at the same time.
+Verifying that the contents are not malicious can only be done by manual inspection, though using asymmetric signatures
+and a web of trust (to be discussed in later chapters) can help.
 
 [hash table]: https://msdn.microsoft.com/en-us/library/wet69s13(v=vs.110).aspx
 [zooey]: zooey-picture.jpg

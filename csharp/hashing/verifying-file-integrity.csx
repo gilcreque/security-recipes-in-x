@@ -10,7 +10,7 @@ using (var stream = File.OpenRead("zooey-picture.jpg")) {
     digest = hash.ComputeHash(stream);
 }
 
-string digestString = BitConverter.ToString(digest);
+var digestString = BitConverter.ToString(digest);
 digestString = digestString.Replace("-", string.Empty).ToLowerInvariant();
 
 Console.WriteLine($"Computed digest: {digestString}.");

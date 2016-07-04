@@ -26,6 +26,10 @@ If neither scripting support nor notebooks are available, use the most natural "
 the language! If possible, make it cross-platform&mdash;we should aim to include rather than 
 exclude developers.
 
+# Languages Represented
+
+* [C#][csharp]
+
 # License
 
 Code portions of this project are licensed under the MIT license (see the [LICENSE][license] file).
@@ -36,3 +40,4 @@ Non-code portions are licensed under the [CC-BY-NC-SA 4.0][cc] license.
 [jupyter]: https://jupyter.org
 [license]: LICENSE.md
 [cc]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[csharp]: ./csharp/readme.md
